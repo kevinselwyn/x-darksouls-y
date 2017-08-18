@@ -4,7 +4,7 @@ Twitter bot that tells you what X is the Dark Souls of
 
 ## Usage
 
-```python
+```text
 python x-darksouls-y.py --consumer-key CONSUMER_KEY
                         --consumer-secret CONSUMER_SECRET
                         --access-token-key ACCESS_TOKEN_KEY
