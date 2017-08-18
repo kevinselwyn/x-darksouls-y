@@ -1,0 +1,13 @@
+{
+    "name": "x-darksouls-y",
+    "description": "X is the Dark Souls of Y Twitter bot",
+    "repository": "https://github.com/kevinselwyn/x-darksouls-y",
+    "logo": "https://pbs.twimg.com/profile_images/897858100903989248/O1Q94w9V_400x400.jpg",
+    "image": "heroku/python",
+    "keywords": [
+        "dark",
+        "souls",
+        "twitter",
+        "bot"
+    ]
+}
