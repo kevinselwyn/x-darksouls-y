@@ -5,7 +5,7 @@
 
 import argparse
 import os
-import thread
+import _thread
 import requests
 import x_darksouls_y
 from flask import Flask
@@ -56,10 +56,10 @@ def main():
     scheduler = BlockingScheduler()
     scheduler.add_job(run_job, 'cron', minute='0,30')
     scheduler.add_job(run_awake, 'cron', minute='5,25,45')
-    print 'Press Ctrl+%s to exit' % ('Break' if os.name == 'nt' else 'C')
+    print('Press Ctrl+%s to exit' % ('Break' if os.name == 'nt' else 'C'))
 
     try:
-        thread.start_new_thread(run_flask, ())
+        _thread.start_new_thread(run_flask, ())
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
         scheduler.shutdown()

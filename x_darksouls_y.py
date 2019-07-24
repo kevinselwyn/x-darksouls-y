@@ -77,7 +77,7 @@ class DarkSouls(object):
         if search_term:
             self.search_term = search_term
 
-        self.search_query = 'q=%%22%s%%22&count=%d' % (urllib.quote_plus(self.search_term), self.search_count)
+        self.search_query = 'q=%%22%s%%22&count=%d' % (urllib.parse.quote_plus(self.search_term), self.search_count)
 
     # UTILS
 
@@ -95,7 +95,7 @@ class DarkSouls(object):
         """Remove chars"""
 
         printable = set(string.printable)
-        tweet = filter(lambda x: x in printable, tweet)
+        tweet = ''.join(list(filter(lambda x: x in printable, tweet)))
         tweet = tweet.replace('&amp;', '&')
 
         return tweet
@@ -167,7 +167,7 @@ class DarkSouls(object):
             api = self.get_api()
             results = api.GetSearch(raw_query=self.search_query)
         except twitter.error.TwitterError:
-            print 'Could not reach Twitter at this time. Please try again later.'
+            print('Could not reach Twitter at this time. Please try again later.')
             results = []
 
         return results
@@ -304,11 +304,11 @@ def run(args):
             break
 
     if not new_tweet:
-        print 'No new unique Tweet could be generated'
+        print('No new unique Tweet could be generated')
         return
 
-    print 'Tweeting: %s' % (new_tweet)
-    print dark_souls.post_tweet(new_tweet)
+    print('Tweeting: %s' % (new_tweet))
+    print(dark_souls.post_tweet(new_tweet))
 
 def main():
     """Main function"""
