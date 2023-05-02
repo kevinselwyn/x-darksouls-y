@@ -1,4 +1,4 @@
 APScheduler==3.6.1
-Flask==1.1.1
+Flask==2.2.5
 python-twitter==3.5
 requests==2.22.0
